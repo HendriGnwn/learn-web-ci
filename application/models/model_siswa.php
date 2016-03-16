@@ -1,11 +1,8 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
-class Model_Administrasi extends CI_Model {
-
+class Model_siswa extends CI_Model {
 	
-
-	function get_data_siswa()
-	{	
+	public function get_data_siswa() {
 		$sql = "select
 				app_siswa.id_siswa,
 				app_siswa.nisn,
@@ -68,13 +65,8 @@ class Model_Administrasi extends CI_Model {
 				$query=$this->db->query($sql);
 				return $query->result_array();
 	}
-
 	
-
-	
-
-	
-	function get_data_siswa_by_id($id)
+	public function get_data_siswa_by_id($id)
 	{
 		$sql = "select * from app_siswa where id_siswa = ?";
 		$query=$this->db->query($sql,array($id));
@@ -82,7 +74,7 @@ class Model_Administrasi extends CI_Model {
 	}
 
 
-	function get_data_agama()
+	public function get_data_agama()
 	{
 		$sql = "select * from app_agama order by id_agama desc ";
 		$query=$this->db->query($sql);
@@ -90,40 +82,35 @@ class Model_Administrasi extends CI_Model {
 	}
 
 
-	function get_data_pekerjaan()
+	public function get_data_pekerjaan()
 	{
 		$sql = "select * from app_pekerjaan order by id_pekerjaan desc ";
 		$query=$this->db->query($sql);
 		return $query->result_array();
 	}
 
-	function get_data_pekerjaan_by_id($id)
+	public function get_data_pekerjaan_by_id($id)
 	{
 		$sql = "select * from app_pekerjaan where id_pekerjaan = ?";
 		$query=$this->db->query($sql,array($id));
 		return $query->row_array();
 	}
 
-
-
-	
-	function get_data_agama_by_id($id)
+	public function get_data_agama_by_id($id)
 	{
 		$sql = "select * from app_agama where id_agama = ?";
 		$query=$this->db->query($sql,array($id));
 		return $query->row_array();
 	}
 
-
-
-	function get_data_ekstrakulikuler()
+	public function get_data_ekstrakulikuler()
 	{
 		$sql = "select * from app_eskul order by id_eskul desc ";
 		$query=$this->db->query($sql);
 		return $query->result_array();
 	}
 
-	function get_data_ekstrakulikuler_by_id($id)
+	public function get_data_ekstrakulikuler_by_id($id)
 	{
 		$sql = "select * from app_eskul where id_eskul = ?";
 		$query=$this->db->query($sql,array($id));
@@ -133,15 +120,14 @@ class Model_Administrasi extends CI_Model {
 	/*
 	BEGIN FUNCTION MODULE MODEL JURUSAN
 	*/
-
-	function get_data_jurusan()
+	public function get_data_jurusan()
 	{
 		$sql = "select * from app_jurusan order by id_jurusan desc";
 		$query=$this->db->query($sql);
 		return $query->result_array();
 	}
 
-	function get_data_jurusan_by_id($id)
+	public function get_data_jurusan_by_id($id)
 	{
 		$sql = "select * from app_jurusan where id_jurusan = ?";
 		$query=$this->db->query($sql,array($id));
@@ -151,11 +137,7 @@ class Model_Administrasi extends CI_Model {
 	/*
 	BEGIN END FUNCTION MODULE MODEL JURUSAN
 	*/
-
-
-	
-
-	function get_data_kelas()
+	public function get_data_kelas()
 	{
 		$sql = "SELECT
 		app_kelas.id_kelas,
@@ -174,14 +156,10 @@ class Model_Administrasi extends CI_Model {
 		return $query->result_array();
 	}
 
-	function get_data_kelas_by_id($id)
+	public function get_data_kelas_by_id($id)
 	{
 		$sql = "select * from app_kelas where id_kelas = ?";
 		$query=$this->db->query($sql,array($id));
 		return $query->row_array();
 	}
-
-
-
-	
 }
